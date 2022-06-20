@@ -1,6 +1,6 @@
 const express = require("express");
 const routes = require("./controllers");
-const helpers = require("./utils/helper");
+const helpers = require("./utils/helper.js");
 require("dotenv").config();
 
 const sequelize = require("./config/connection");
