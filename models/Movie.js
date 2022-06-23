@@ -16,7 +16,7 @@ Movie.init(
       allowNull: false,
     },
     overview: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     release_date: {
@@ -29,13 +29,13 @@ Movie.init(
     poster_path: {
       type: DataTypes.STRING,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "user",
+    //     key: "id",
+    //   },
+    // },
   },
   {
     sequelize,
