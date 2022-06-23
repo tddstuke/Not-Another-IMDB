@@ -29,6 +29,7 @@ Movie.init(
     poster_path: {
       type: DataTypes.STRING,
     },
+
     // user_id: {
     //   type: DataTypes.INTEGER,
     //   references: {
