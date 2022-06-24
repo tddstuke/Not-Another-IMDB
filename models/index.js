@@ -1,5 +1,4 @@
 const Movie = require("./Movie");
-const Favorite = require("./Favorite");
 
 // User.hasmany(Movie, {
 //   foreignKey: "user_id",
@@ -29,4 +28,4 @@ const Favorite = require("./Favorite");
 //   foreignKey: "user_id",
 // });
 
-module.exports = { Movie, Favorite };
+module.exports = { Movie };

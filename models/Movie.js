@@ -9,34 +9,22 @@ Movie.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: false,
+      autoIncrement: true,
     },
+    list_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+
     title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    overview: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    release_date: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    genre: {
-      type: DataTypes.INTEGER,
-    },
-    poster_path: {
-      type: DataTypes.STRING,
-    },
 
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "user",
-    //     key: "id",
-    //   },
-    // },
+    movie_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   },
   {
     sequelize,

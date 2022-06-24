@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Favorite extends Model {}
+class Lists extends Model {}
 
 Favorite.init(
   {
@@ -18,14 +18,6 @@ Favorite.init(
     //     key: "id",
     //   },
     // },
-    movie_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "movie",
-        key: "id",
-      },
-    },
   },
   {
     sequelize,
