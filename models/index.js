@@ -1,5 +1,5 @@
 const User = require("./User");
-
+const List = require("./List");
 const Movie = require("./Movie");
 
 // User.hasmany(Movie, {
@@ -30,4 +30,4 @@ const Movie = require("./Movie");
 //   foreignKey: "user_id",
 // });
 
-module.exports = { Movie, User };
+module.exports = { Movie, User, List };
