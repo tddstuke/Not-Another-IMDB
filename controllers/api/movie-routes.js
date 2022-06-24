@@ -5,16 +5,7 @@ const { Movie } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const data = await Movie.findAll({
-      attributes: [
-        "id",
-        "title",
-        "overview",
-        "release_date",
-        "genre",
-        "poster_path",
-
-        // "user_id",
-      ],
+      attributes: ["id", "movie_id", "title", "user_id"],
       //   include: {model: USER, attributes: ["username"]},}
     });
     res.json(data);
@@ -30,15 +21,7 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: [
-        "id",
-        "title",
-        "overview",
-        "release_date",
-        "genre",
-        "poster_path",
-        // "user_id",
-      ],
+      attributes: ["id", "title", "user_id"],
       //   include: {model: USER, attributes: ["username"]},}
     });
     if (!data) {
@@ -56,9 +39,7 @@ router.put("/:id", async (req, res) => {
   try {
     const data = await Movie.update(
       {
-        is_liked: req.body.is_liked,
-        is_disliked: req.body.is_disliked,
-        is_watchlist: req.body.is_watchlist,
+        list_id: req.body.list_id,
       },
       {
         where: {
@@ -80,13 +61,9 @@ router.put("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const data = await Movie.create({
-      id: req.body.id,
       title: req.body.title,
-      overview: req.body.overview,
-      release_date: req.body.release_date,
-      genre: req.body.genre,
-      poster_path: req.body.poster_path,
-      // user_id: req.session.user_id,
+      user_id: req.session.user_id,
+      list_id: req.body.list_id,
     });
 
     res.json(data);
