@@ -1,0 +1,43 @@
+<div class="container m-5">
+  <form class="field">
+    <label class="label ml-3" for="movie">Enter Movie Name:</label>
+    <input
+      class="input m-3"
+      id="search-bar"
+      type="text"
+      placeholder="Find a Movie"
+      name="movie"
+    />
+    <button
+      id="search-button"
+      type="submit"
+      class="button is-warning ml-3"
+    >Submit</button>
+  </form>
+</div>
+
+<div id="container" class="container m-5">
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is4by3">
+        <img
+          src="http://image.tmdb.org/t/p/w500/{{poster_path}}"
+          alt="selected movie poster"
+        />
+      </figure>
+      <header class="card-header">
+        <p class="card-header-title">{{title}}</p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <ul>
+            <li>{{overview}}</li>
+            <li>{{release_date}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/javascript/home-search.js"></script>
