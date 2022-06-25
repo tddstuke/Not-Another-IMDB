@@ -34,6 +34,7 @@ function createMovieCard(movie_info) {
   const overviewLi = document.createElement("li");
   const release_dateLi = document.createElement("li");
   const poster = document.createElement("img");
+  const button = document.createElement("button");
 
   movieDiv.classList = "card";
   titleHeader.classList = "card-header";
@@ -41,6 +42,8 @@ function createMovieCard(movie_info) {
   contentContainerDiv.classList = "card-content";
   contentDiv.classList = "content";
   poster.setAttribute("src", "http://image.tmdb.org/t/p/w500/" + poster_path);
+  button.classList = "button is-warning mt-3";
+  button.textContent = "Add Movie";
 
   titleText.textContent = title;
   overviewLi.textContent = overview;
@@ -52,7 +55,7 @@ function createMovieCard(movie_info) {
   pageDiv.appendChild(contentContainerDiv);
   contentContainerDiv.appendChild(contentDiv);
   contentDiv.appendChild(infoList);
-  infoList.append(overviewLi, release_dateLi);
+  infoList.append(overviewLi, release_dateLi, button);
 }
 
 document
