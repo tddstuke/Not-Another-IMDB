@@ -11,10 +11,14 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    list_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    // list_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: "list",
+    //     key: "id",
+    //   },
+    // },
 
     title: {
       type: DataTypes.STRING,
@@ -22,7 +26,7 @@ Movie.init(
     },
 
     movie_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },

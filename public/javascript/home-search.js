@@ -44,6 +44,7 @@ function createMovieCard(movie_info) {
   poster.setAttribute("src", "http://image.tmdb.org/t/p/w500/" + poster_path);
   button.classList = "button is-warning mt-3";
   button.textContent = "Add Movie";
+  button.setAttribute("id", "add-movie");
 
   titleText.textContent = title;
   overviewLi.textContent = overview;
@@ -56,6 +57,36 @@ function createMovieCard(movie_info) {
   contentContainerDiv.appendChild(contentDiv);
   contentDiv.appendChild(infoList);
   infoList.append(overviewLi, release_dateLi, button);
+
+  document
+    .querySelector("#add-movie")
+    .addEventListener("click", (event) => addMovie(event, movie_info));
+}
+
+async function addMovie(event, movie_info) {
+  event.preventDefault();
+  //   event.preventDefault();
+  //   const list_id = 1;
+  const title = movie_info.title;
+  const movie_id = movie_info.id;
+
+  console.log(movie_id);
+  const response = await fetch("api/movies", {
+    method: "POST",
+    body: JSON.stringify({
+      //   list_id,
+      movie_id,
+      title,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert(response.statusText);
+  }
 }
 
 document

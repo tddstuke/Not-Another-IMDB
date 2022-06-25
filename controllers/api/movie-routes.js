@@ -5,7 +5,7 @@ const { Movie } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const data = await Movie.findAll({
-      attributes: ["id", "movie_id", "title", "user_id"],
+      attributes: ["id", "movie_id", "title"],
       //   include: {model: USER, attributes: ["username"]},}
     });
     res.json(data);
@@ -61,9 +61,9 @@ router.put("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const data = await Movie.create({
+      // list_id: req.body.list_id,
       title: req.body.title,
-      user_id: req.session.user_id,
-      list_id: req.body.list_id,
+      movie_id: req.body.movie_id,
     });
 
     res.json(data);
