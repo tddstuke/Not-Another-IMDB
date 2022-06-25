@@ -26,7 +26,7 @@ Movie.init(
     },
 
     movie_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
