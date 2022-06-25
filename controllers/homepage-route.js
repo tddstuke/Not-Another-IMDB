@@ -7,6 +7,7 @@ router.get("/", async (req, res) => {
   res.render("homepage");
 });
 
+// search 3rd party api for movie by name
 router.get("/by-name:name", async (req, res) => {
   try {
     const { data } = await movieDataBase.fetchByName(req.params.name);
@@ -14,7 +15,21 @@ router.get("/by-name:name", async (req, res) => {
     console.log(info);
     res.json(info);
     const { title, overview, release_date } = info;
-    // res.render("homepage");
+    // res.render("homepage, info");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// get movie details from 3rd party api using id
+
+router.get("/by-id:id", async (req, res) => {
+  try {
+    const { data } = await movieDataBase.FetchByID(req.params.id);
+
+    console.log(data);
+    res.json(data);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

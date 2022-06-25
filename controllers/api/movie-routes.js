@@ -21,7 +21,7 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ["id", "title", "user_id"],
+      attributes: ["id", "title", "movie_id"],
       //   include: {model: USER, attributes: ["username"]},}
     });
     if (!data) {
