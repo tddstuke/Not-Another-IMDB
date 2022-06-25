@@ -6,8 +6,8 @@ router.use('/api', apiRoutes);
 const homeRoutes = require('./homepage-route');
 router.use('/', homeRoutes);
 
-// const newMovieRoutes = require('./newMovie-route');
-// router.use('/newMovie-route');
+const newListRoutes = require('./newList-route');
+router.use('/create-list', newListRoutes);
 
 router.use((req, res) => {
 	res.status(404).end();
