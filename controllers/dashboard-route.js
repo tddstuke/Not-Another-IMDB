@@ -13,7 +13,10 @@ router.get("/", async (req, res) => {
       })
     );
     console.log(filledMovies);
-    res.render("dashboard", { movies: filledMovies });
+    res.render("dashboard", {
+      movies: filledMovies,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
   }

@@ -77,7 +77,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const data = await Movie.destroy({
       where: {
-        id: req.params.id,
+        movie_id: req.params.id,
       },
     });
     if (!data) {
