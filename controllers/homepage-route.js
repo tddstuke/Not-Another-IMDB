@@ -19,6 +19,7 @@ router.get("/by-name:name", async (req, res) => {
     const genres = info.genres;
     // const genres = genresArray.map((genre) => ({ name: genre.name }));
     // console.log(genreArray);
+    console.log(info);
     res.render("single-movie", {
       info,
       loggedIn: req.session.loggedIn,
