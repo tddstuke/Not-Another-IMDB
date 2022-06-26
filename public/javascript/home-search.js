@@ -27,9 +27,7 @@ async function addMovie(event) {
   if (response.ok) {
     document.location.replace("/dashboard");
   } else {
-    alert(response.statusText, {
-      message: "This movie may already exist in your movie list",
-    });
+    alert("This movie may already exist in your movie list");
   }
 }
 

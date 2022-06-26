@@ -1,7 +1,7 @@
 <div class="card">
 
   <header id="{{id}}" class="card-header">
-    <p class="card-header-title is-centered">{{title}}</p>
+    <p class="card-header-title is-centered">{{info.title}}</p>
   </header>
 
   <div class="card-content">
@@ -9,20 +9,20 @@
       <div class="media-left">
         <figure class="image is4by3">
           <img
-            src="http://image.tmdb.org/t/p/w500/{{poster_path}}"
-            alt="{{title}} movie poster"
+            src="http://image.tmdb.org/t/p/w500/{{info.poster_path}}"
+            alt="{{info.title}} movie poster"
           />
         </figure>
       </div>
 
       <div class="content">
         <ul class="m-5">
-          <li>{{overview}}</li>
-          <li>Released on {{release_date}}</li>
+          <li>{{info.overview}}</li>
+          <li>Released on {{info.release_date}}</li>
         </ul>
-        {{!-- {{#if loggedIn}} --}}
-        <button class="is-warning button mt-3" id="add-movie">Add Movie</button>
-        {{!-- {{/if}} --}}
+        {{#if loggedIn}}
+          <button class="is-warning button mt-3" id="add-movie">Add Movie</button>
+        {{/if}}
       </div>
 
     </div>
