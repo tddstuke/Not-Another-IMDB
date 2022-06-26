@@ -8,4 +8,7 @@ module.exports = {
     const query_name = movieName.split(" ").join("+");
     return axios.get(`${apiUrl}${key}&query=${query_name}`);
   },
+  fetchById(movieId) {
+    return axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${key}`);
+  },
 };
