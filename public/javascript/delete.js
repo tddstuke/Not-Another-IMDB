@@ -19,6 +19,3 @@ const btns = document.querySelectorAll("button");
 btns.forEach((currentBtn) => {
   currentBtn.addEventListener("click", deleteButtonHandler);
 });
-// document
-//   .querySelectorAll("button")
-//   .addEventListener("click", deleteButtonHandler);
