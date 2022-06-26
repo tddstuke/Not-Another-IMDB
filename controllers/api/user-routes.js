@@ -45,6 +45,7 @@ router.post("/", (req, res) => {
         req.session.loggedIn = true;
       });
       res.json(dbUserData);
+      // call create list function
     })
     .catch((err) => {
       console.log(err);

@@ -17,8 +17,20 @@
 
       <div class="content">
         <ul class="m-5">
-          <li>{{info.overview}}</li>
-          <li>Released on {{info.release_date}}</li>
+          <li><span class="has-text-weight-bold">Summary:
+            </span>{{info.overview}}</li>
+          <li><span class="has-text-weight-bold">Released on:
+            </span>
+            {{info.release_date}}</li>
+          <li><span class="has-text-weight-bold">Genres:
+            </span>{{#each genres as |genre|}}
+              {{genre.name}}{{/each}}</li>
+          <li><span class="has-text-weight-bold">Official Homepage:
+            </span><a href={{info.homepage}}>{{info.title}}</a></li>
+          <li><span class="has-text-weight-bold">Run Time:
+            </span>
+            {{info.runtime}}
+            minutes</li>
         </ul>
         {{#if loggedIn}}
           <button class="is-warning button mt-3" id="add-movie">Add Movie</button>
