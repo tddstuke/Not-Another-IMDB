@@ -36,17 +36,22 @@
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item" href="/"> Home </a>
-
-          <a class="navbar-item" href="/dashboard"> Dashboard </a>
+          {{#if loggedIn}}
+            <a class="navbar-item" href="/dashboard"> Dashboard </a>
+          {{/if}}
         </div>
 
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary" href="/login">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light" href="/login"> Log in </a>
+              {{#if loggedIn}}
+                <a id="logout" class="button is-light" href="/"> Log out </a>
+              {{else}}
+                <a class="button is-primary" href="/login">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-light" href="/login"> Log in </a>
+              {{/if}}
             </div>
           </div>
         </div>
@@ -67,5 +72,6 @@
         </p>
       </div>
     </footer>
+    <script src="/javascript/logout.js"></script>
   </body>
 </html>
