@@ -28,6 +28,7 @@ Movie.init(
     movie_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      unique: true,
     },
   },
   {
