@@ -13,9 +13,9 @@ router.get("/by-name:name", async (req, res) => {
     const { data } = await movieDataBase.fetchByName(req.params.name);
     const info = data.results[0];
     console.log(info);
-    res.json(info);
-    const { title, overview, release_date } = info;
-    // res.render("homepage, info");
+    // res.json(info);
+    // const { title, overview, release_date } = info;
+    res.render("single-movie", { info });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

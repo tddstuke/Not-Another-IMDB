@@ -1,21 +1,28 @@
 <div class="card">
-  <div class="card-image">
-    <figure class="image is4by3">
-      <img
-        src="http://image.tmdb.org/t/p/w500/{{poster_path}}"
-        alt="selected movie poster"
-      />
-    </figure>
-    <header class="card-header">
-      <p class="card-header-title">{{title}}</p>
-    </header>
-    <div class="card-content">
-      <div class="content">
-        <ul>
-          <li>{{overview}}</li>
-          <li>{{release_date}}</li>
-        </ul>
+  {{! <div class="card-image"> }}
+  <header id="{{id}}" class="card-header">
+    <p class="card-header-title is-centered">{{title}}</p>
+  </header>
+  {{! </div> }}
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is4by3">
+          <img
+            src="http://image.tmdb.org/t/p/w500/{{poster_path}}"
+            alt="selected movie poster"
+          />
+        </figure>
       </div>
+      {{! <div class="media-content"> }}
+      <div class="content">
+        <ul class="m-5">
+          <li>{{overview}}</li>
+          <li>Released on {{release_date}}</li>
+        </ul>
+        <button class="is-warning button mt-3" id="add-movie">Add Movie</button>
+      </div>
+      {{! </div> }}
     </div>
   </div>
 </div>
