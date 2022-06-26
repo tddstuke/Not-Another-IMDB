@@ -11,11 +11,19 @@ router.get("/", async (req, res) => {
 router.get("/by-name:name", async (req, res) => {
   try {
     const { data } = await movieDataBase.fetchByName(req.params.name);
-    const info = data.results[0];
-    // console.log(info);
-
-    console.log(req.session.loggedIn);
-    res.render("single-movie", { info, loggedIn: req.session.loggedIn });
+    const infoId = data.results[0].id;
+    // use name fetch to fetch by Id to recieve extra data
+    const moreData = await movieDataBase.FetchByID(infoId);
+    // console.log(moreData.data);
+    const info = moreData.data;
+    const genres = info.genres;
+    // const genres = genresArray.map((genre) => ({ name: genre.name }));
+    // console.log(genreArray);
+    res.render("single-movie", {
+      info,
+      loggedIn: req.session.loggedIn,
+      genres,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
