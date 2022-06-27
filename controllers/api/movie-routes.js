@@ -6,7 +6,6 @@ router.get("/", async (req, res) => {
   try {
     const data = await Movie.findAll({
       attributes: ["id", "movie_id", "title"],
-      //   include: {model: USER, attributes: ["username"]},}
     });
     res.json(data);
   } catch (err) {
@@ -64,6 +63,7 @@ router.post("/", async (req, res) => {
       // list_id: req.body.list_id,
       title: req.body.title,
       movie_id: req.body.movie_id,
+      user_id: req.session.user_id,
     });
 
     res.json(data);

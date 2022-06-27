@@ -4,7 +4,9 @@ const movieDataBase = require("../services/movie-service");
 
 router.get("/", async (req, res) => {
   try {
-    const movies = await Movie.findAll({ raw: true });
+    const movies = await Movie.findAll({
+      where: { user_id: req.session.user_id },
+    });
     console.log(movies);
     const filledMovies = await Promise.all(
       movies.map(async (movie) => {

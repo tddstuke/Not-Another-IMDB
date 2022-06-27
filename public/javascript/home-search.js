@@ -12,7 +12,7 @@ async function addMovie(event) {
   const header = document.querySelector("header");
   movie_id = header.getAttribute("id");
 
-  console.log(title, movie_id);
+  //   console.log(title, movie_id);
 
   const response = await fetch("api/movies", {
     method: "POST",
@@ -30,6 +30,29 @@ async function addMovie(event) {
     alert("This movie may already exist in your movie list");
   }
 }
+
+// async function addMovie(event) {
+//   event.preventDefault();
+//   const title = document.querySelector("p").innerHTML;
+//   const header = document.querySelector("header");
+//   movie_id = header.getAttribute("id");
+
+//   const response = await fetch("/api/movies/likes", {
+//     method: "PUT",
+//     body: JSON.stringify({
+//       movie_id,
+//       title,
+//     }),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   if (response.ok) {
+//     document.location.reload();
+//   } else {
+//     alert(response.statusText);
+//   }
+// }
 
 document
   .querySelector("#search-button")

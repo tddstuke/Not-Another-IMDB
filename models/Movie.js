@@ -11,13 +11,21 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    },
     // list_id: {
     //   type: DataTypes.INTEGER,
-    //   allowNull: false,
+    //   allowNull: true,
     //   references: {
     //     model: "list",
     //     key: "id",
-    // },
+    //   },
     // },
 
     title: {
@@ -28,7 +36,7 @@ Movie.init(
     movie_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
+      // unique: true,
     },
   },
   {

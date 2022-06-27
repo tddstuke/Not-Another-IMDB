@@ -1,3 +1,20 @@
+async function createInitialList() {
+  try {
+    const response = await fetch("/api/lists", {
+      method: "POST",
+      body: JSON.stringify({
+        name: "My Movies",
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.ok) {
+      console.log(response);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 async function loginFormHandler(event) {
   event.preventDefault();
 
@@ -46,6 +63,7 @@ async function signupFormHandler(event) {
       alert(response.statusText);
     }
   }
+  // createInitialList();
 }
 
 document

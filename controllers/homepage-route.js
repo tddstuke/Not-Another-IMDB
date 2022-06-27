@@ -14,12 +14,8 @@ router.get("/by-name:name", async (req, res) => {
     const infoId = data.results[0].id;
     // use name fetch to fetch by Id to recieve extra data
     const moreData = await movieDataBase.FetchByID(infoId);
-    // console.log(moreData.data);
     const info = moreData.data;
     const genres = info.genres;
-    // const genres = genresArray.map((genre) => ({ name: genre.name }));
-    // console.log(genreArray);
-    console.log(info);
     res.render("single-movie", {
       info,
       loggedIn: req.session.loggedIn,
