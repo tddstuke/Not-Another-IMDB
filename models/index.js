@@ -2,32 +2,19 @@ const User = require("./User");
 const List = require("./List");
 const Movie = require("./Movie");
 
-// User.hasmany(Movie, {
+// User.hasMany(List, {
 //   foreignKey: "user_id",
 // });
 
-// User.belongsToMany(Movie, {
-//   through: Favorite,
-//   as: "liked_movie",
+// List.belongsTo(User, {
 //   foreignKey: "user_id",
-// });
+// }),
+//   List.hasMany(Movie, {
+//     foreignKey: "list_id",
+//   });
 
-// Movie.belongsToMany(User, {
-//   through: Favorite,
-//   as: "liked_movie",
-//   foreignKey: "movie_id",
-// });
-
-// Favorite.belongsTo(User, {
-//   foreignKey: "user_id",
-// });
-
-// Favorite.belongsTo(Movie, {
-//   foreignKey: "movie_id",
-// });
-
-// User.hasmany(Favorite, {
-//   foreignKey: "user_id",
+// Movie.belongsTo(List, {
+//   foreignKey: "list_id",
 // });
 
 module.exports = { Movie, User, List };

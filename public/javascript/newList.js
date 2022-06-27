@@ -24,6 +24,4 @@ async function addMovie(event, movie_info) {
 	}
 }
 
-document
-	.querySelector('#watch-button')
-	.addEventListener('click', searchButtonHandler);
+document.querySelector('#watch-button').addEventListener('click', addMovie);

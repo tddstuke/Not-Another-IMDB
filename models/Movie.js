@@ -17,7 +17,7 @@ Movie.init(
     //   references: {
     //     model: "list",
     //     key: "id",
-    //   },
+    // },
     // },
 
     title: {
@@ -28,6 +28,7 @@ Movie.init(
     movie_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      unique: true,
     },
   },
   {
