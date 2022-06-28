@@ -4,7 +4,22 @@ const { List, Movie, User } = require("../models");
 const movieDataBase = require("../services/movie-service");
 
 router.get("/", async (req, res) => {
-  res.render("homepage", { loggedIn: req.session.loggedIn });
+  try {
+    // const movies = await Movie.findAll({ raw: true });
+    // const filledMovies = await Promise.all(
+    //   movies.map(async (movie) => {
+    //     const { data } = await movieDataBase.FetchByID(movie.movie_id);
+    //     return data;
+    //   })
+    // );
+
+    const { data } = await movieDataBase.fetchTrending();
+    // console.log("data: ", data);
+
+    res.render("homepage", { movies: data.results, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 // search 3rd party api for movie by name
@@ -19,7 +34,7 @@ router.get("/by-name:name", async (req, res) => {
     const genres = info.genres;
     // const genres = genresArray.map((genre) => ({ name: genre.name }));
     // console.log(genreArray);
-    console.log(info);
+    // console.log(info);
     res.render("single-movie", {
       info,
       loggedIn: req.session.loggedIn,
@@ -37,7 +52,7 @@ router.get("/by-id:id", async (req, res) => {
   try {
     const { data } = await movieDataBase.FetchByID(req.params.id);
 
-    console.log(data);
+    // console.log(data);
     res.json(data);
   } catch (err) {
     console.log(err);
