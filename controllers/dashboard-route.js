@@ -4,19 +4,31 @@ const movieDataBase = require("../services/movie-service");
 
 router.get("/", async (req, res) => {
   try {
-    const movies = await Movie.findAll({
+    const data = await Movie.findAll({
       where: { user_id: req.session.user_id },
+      // attributes: ["id"],
     });
+    const movies = data.map((movie) => movie.get({ plain: true }));
     console.log(movies);
-    const filledMovies = await Promise.all(
-      movies.map(async (movie) => {
-        const { data } = await movieDataBase.FetchByID(movie.movie_id);
-        return data;
-      })
-    );
-    console.log(filledMovies);
+
+    // const movieIds = await Promise.all(
+    //   movies.map(async (movie) => ({ id: movie.id }))
+    // );
+    // const filledMovies = await Promise.all(
+    //   movies.map(async (movie) => {
+    //     const { data } = await movieDataBase.FetchByID(movie.movie_id);
+    //     return data;
+    //   })
+    // );
+    // filledMovies.map((movie) => {
+    //   movie.id === movieIds.id;
+    // });
+    // console.log(filledMovies);
+
     res.render("dashboard", {
-      movies: filledMovies,
+      movies,
+      // filledMovies,
+      // movieIds,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {

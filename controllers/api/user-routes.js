@@ -1,8 +1,5 @@
 const router = require("express").Router();
-sequelize = require("../../config/connection");
 const { User, Movie, List } = require("../../models");
-// const ListHelper = require("../../services/list-service");
-const axios = require("axios");
 
 router.get("/", (req, res) => {
   User.findAll({
@@ -48,7 +45,7 @@ router.post("/", (req, res) => {
         req.session.loggedIn = true;
         res.json(dbUserData);
       });
-      // ListHelper.createInitialList(req.session.user_id);
+      // call create list function
     })
     .catch((err) => {
       console.log(err);

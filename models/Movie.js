@@ -38,6 +38,16 @@ Movie.init(
       allowNull: false,
       // unique: true,
     },
+
+    overview: {
+      type: DataTypes.STRING(1234),
+    },
+    poster_path: {
+      type: DataTypes.STRING,
+    },
+    tag: {
+      type: DataTypes.STRING,
+    },
   },
   {
     sequelize,

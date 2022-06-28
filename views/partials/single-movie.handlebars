@@ -9,6 +9,7 @@
       <div class="column is-half">
         <figure class="image is4by3">
           <img
+            id="poster"
             src="http://image.tmdb.org/t/p/w500/{{info.poster_path}}"
             alt="{{info.title}} movie poster"
           />
@@ -17,7 +18,7 @@
 
       <div class="content column is-half">
         <ul class="m-5">
-          <li><span class="has-text-weight-bold">Summary:
+          <li id="overview"><span class="has-text-weight-bold">Summary:
             </span>{{info.overview}}</li>
           <li><span class="has-text-weight-bold">Released on:
             </span>
@@ -33,6 +34,7 @@
             minutes</li>
         </ul>
         {{#if loggedIn}}
+
           <button class="is-warning button mt-3" id="add-movie">Add Movie</button>
         {{/if}}
       </div>

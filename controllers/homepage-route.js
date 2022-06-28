@@ -16,6 +16,7 @@ router.get("/by-name:name", async (req, res) => {
     const moreData = await movieDataBase.FetchByID(infoId);
     const info = moreData.data;
     const genres = info.genres;
+
     res.render("single-movie", {
       info,
       loggedIn: req.session.loggedIn,
@@ -32,9 +33,14 @@ router.get("/by-name:name", async (req, res) => {
 router.get("/by-id:id", async (req, res) => {
   try {
     const { data } = await movieDataBase.FetchByID(req.params.id);
-
-    console.log(data);
-    res.json(data);
+    // const info = data.data;
+    const genres = data.genres;
+    console.log(req.params.id);
+    res.render("add-list", {
+      data,
+      loggedIn: req.session.loggedIn,
+      genres,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
