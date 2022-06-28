@@ -1,6 +1,18 @@
-<form>
-	<label>Create List</label>
-	<input type='text' name='List' />
-</form>
+{{#if loggedIn}}
+	<form class='list-form'>
+		<div>
 
-<script src='/public/javascript/newList.js'></script>
+		</div>
+		<label>Create List</label>
+		<input type='text' name='List' />
+		<div>
+			<button type='submit'>Add to List</button>
+			<button type='button' class='rm-from-list-btn'>Remove Movie
+			</button>
+		</div>
+	</form>
+{{/if}}
+
+{{#if loggedIn}}
+	<script src='/public/javascript/newList.js'></script>
+{{/if}}
