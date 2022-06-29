@@ -8,6 +8,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/navbar.css">
   </head>
   <body>
     <nav
@@ -27,6 +29,23 @@
           aria-expanded="false"
           data-target="navbarBasicExample"
         >
+
+        <div class="topnav" id="myTopnav">
+          <a href="/" class="active">Home</a>
+          <a href="/dashboard">Dashboard</a>
+          {{#if loggedIn}}
+                <a id="logout" href="/"> Log out </a>
+              {{else}}
+                <a  href="/login">
+                  <strong>Sign up</strong>
+                </a>
+                <a  href="/login"> Log in </a>
+              {{/if}}
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -84,5 +103,6 @@
     {{#if loggedIn}}
       <script src="/javascript/logout.js"></script>
     {{/if}}
+      <script src="/javascript/navbar.js"></script>"
   </body>
 </html>
