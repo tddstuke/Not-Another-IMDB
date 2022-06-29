@@ -56,7 +56,7 @@ router.get("/by-id:id", async (req, res) => {
     const { data } = await movieDataBase.FetchByID(req.params.id);
 
     // console.log(data);
-    res.json(data);
+    // res.json(data);
     // const info = data.data;
     const genres = data.genres;
     // console.log();
