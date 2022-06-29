@@ -1,0 +1,60 @@
+<div class="card">
+
+  <header id="{{data.id}}" class="card-header">
+    <p class="card-header-title is-centered">{{data.title}}</p>
+  </header>
+
+  <div class="card-content">
+    <div class="columns">
+      <div class="column is-half">
+        <figure class="image is4by3">
+          <img
+            id="poster"
+            src="http://image.tmdb.org/t/p/w500/{{data.poster_path}}"
+            alt="{{data.title}} movie poster"
+          />
+        </figure>
+      </div>
+
+      <div class="content column is-half">
+        <ul class="m-5">
+          <li id="overview"><span class="has-text-weight-bold">Summary:
+            </span>{{data.overview}}</li>
+          <li><span class="has-text-weight-bold">Released on:
+            </span>
+            {{data.release_date}}</li>
+          <li><span class="has-text-weight-bold">Genres:
+            </span>{{#each genres as |genre|}}
+              {{genre.name}}{{/each}}</li>
+          <li><span class="has-text-weight-bold">Official Homepage:
+            </span><a href={{data.homepage}}>{{data.title}}</a></li>
+          <li><span class="has-text-weight-bold">Run Time:
+            </span>
+            {{data.runtime}}
+            minutes</li>
+        </ul>
+        {{#if loggedIn}}
+
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="tag" value="Liked" />
+              Liked
+            </label>
+            <label class="radio">
+              <input type="radio" name="tag" value="Loved" />
+              Loved
+            </label>
+            <label class="radio">
+              <input type="radio" name="tag" value="Want To Watch" />
+              Want To Watch
+            </label>
+          </div>
+
+          <button class="is-warning button mt-3" id="add-tag">Update Tag</button>
+        {{/if}}
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="/javascript/update.js"></script>

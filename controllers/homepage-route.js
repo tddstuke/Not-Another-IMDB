@@ -16,7 +16,10 @@ router.get("/", async (req, res) => {
     const { data } = await movieDataBase.fetchTrending();
     // console.log("data: ", data);
 
-    res.render("homepage", { movies: data.results, loggedIn: req.session.loggedIn });
+    res.render("homepage", {
+      movies: data.results,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
   }
@@ -34,6 +37,7 @@ router.get("/by-name:name", async (req, res) => {
     // const genres = genresArray.map((genre) => ({ name: genre.name }));
     // console.log(genreArray);
     // console.log(info);
+
     res.render("single-movie", {
       info,
       loggedIn: req.session.loggedIn,
@@ -53,6 +57,14 @@ router.get("/by-id:id", async (req, res) => {
 
     // console.log(data);
     res.json(data);
+    // const info = data.data;
+    const genres = data.genres;
+    // console.log();
+    res.render("add-list", {
+      data,
+      loggedIn: req.session.loggedIn,
+      genres,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

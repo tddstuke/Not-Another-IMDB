@@ -10,15 +10,22 @@ async function addMovie(event) {
 
   const title = document.querySelector("p").innerHTML;
   const header = document.querySelector("header");
+  const overview = document.querySelector("#overview").textContent;
+  const img = document.querySelector("#poster");
+  const poster_pathUrl = img.getAttribute("src");
+  const poster_path =
+    poster_pathUrl.split("/")[poster_pathUrl.split("/").length - 1];
   movie_id = header.getAttribute("id");
 
-  //   console.log(title, movie_id);
+  console.log(poster_path);
 
   const response = await fetch("api/movies", {
     method: "POST",
     body: JSON.stringify({
       movie_id,
       title,
+      overview,
+      poster_path,
     }),
     headers: {
       "Content-Type": "application/json",
