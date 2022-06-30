@@ -29,6 +29,9 @@ router.get("/", async (req, res) => {
 router.get("/by-name:name", async (req, res) => {
   try {
     const { data } = await movieDataBase.fetchByName(req.params.name);
+    if (!data.results[0]) {
+      return res.json(400, { message: "movie not found" });
+    }
     const infoId = data.results[0].id;
     // use name fetch to fetch by Id to recieve extra data
     const moreData = await movieDataBase.FetchByID(infoId);
