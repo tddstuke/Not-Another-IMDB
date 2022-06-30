@@ -9,10 +9,9 @@ A search engine to look up movies with a detailed synapsis.
 ## Table of Contents
 
 - [Screenshots](#screenshots)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-- [Technology Used](#technology)
+- [Technology](#technology-stack)
 - [License](#license)
 
 ## Screenshots
@@ -23,9 +22,6 @@ A search engine to look up movies with a detailed synapsis.
 
 <img width="1440" alt="Screen Shot 2022-06-28 at 8 43 16 PM" src="https://user-images.githubusercontent.com/100535724/176517394-1e00e539-67ec-4b7a-949e-087af18076ea.png">
 
-## Installation
-
-To be announced
 
 ## Usage
 
@@ -45,9 +41,15 @@ Frontend team members:
 
 - [Jake Bauer](https://github.com/Rolo2121)
 
-## Technology
+## Technology Stack
 
-Axios bcrypt dotenv express express-handlebars express-session mysql2 sequelize connect-session-sequelize
+- axios = Promise based HTTP client for the browser and node.js
+- bcrypt = Library to hash passwords
+- dotenv = Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.-                express 
+- express-handlebars = A Handlebars view engine for Express
+- express-session = Session data is not saved in the cookie itself, just the session ID. Session data is stored                           server-side.
+- mysql2 = Supports prepared statements, non-utf8 encodings, binary log protocol, compression, ssl much more-                    sequelize 
+- connect-session-sequelize = A SQL session store using Sequelize.js.
 
 ## License
 
